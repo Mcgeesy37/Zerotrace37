@@ -64,7 +64,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 // === TERMINAL TYPEWRITER ===
 const lines = [
-  '> Initialisiere CoreSetup - Security Audit v2.1...',
+  '> Initialisiere ZeroTrace37 - Security Audit v2.1...',
   '> Threat detection: AKTIV ✓',
   '> Bereit. Wie können wir helfen?'
 ];
