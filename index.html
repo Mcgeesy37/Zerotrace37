@@ -235,20 +235,7 @@
         <div class="card-arrow">→</div>
       </a>
 
-      <div class="service-card" data-delay="300">
-        <div class="card-glow"></div>
-        <div class="service-icon-wrap">
-          <div class="service-icon">🏢</div>
-        </div>
-        <h3>Corporate Security</h3>
-        <p>Sicherheitsaudits, Mitarbeiterschulungen und Sicherheitskonzepte für Unternehmen jeder Größe.</p>
-        <div class="card-tags">
-          <span>Audit</span><span>Training</span><span>Konzept</span>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
-      <a class="service-card" data-delay="400" href="privatpersonen-schutz.html">
+      <a class="service-card" data-delay="300" href="privatpersonen-schutz.html">
         <div class="card-glow"></div>
         <div class="service-icon-wrap">
           <div class="service-icon">👤</div>
@@ -261,7 +248,7 @@
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="service-card" data-delay="500" href="rechtliche-begleitung.html">
+      <a class="service-card" data-delay="400" href="rechtliche-begleitung.html">
         <div class="card-glow"></div>
         <div class="service-icon-wrap">
           <div class="service-icon">📋</div>
@@ -274,7 +261,7 @@
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="service-card shop-card" data-delay="600" href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener">
+      <a class="service-card shop-card" data-delay="500" href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener">
         <div class="card-glow"></div>
         <div class="shop-badge">IM SHOP</div>
         <div class="service-icon-wrap">
@@ -560,7 +547,6 @@
             <option>Betrugsermittlung</option>
             <option>Penetration Testing</option>
             <option>Incident Response</option>
-            <option>Corporate Security</option>
             <option>Privatpersonen-Schutz</option>
             <option>Rechtliche Begleitung</option>
           </select>
@@ -632,9 +618,6 @@
   <script src="script.js"></script>
   <script>
     // Homepage contact form → real submission via Formspree.
-    // IMPORTANT: the old fake contactForm handler must be removed from
-    // script.js, or it will also fire and show a false "sent" message
-    // without actually submitting.
     (function () {
       var form = document.getElementById('contactForm');
       var status = document.getElementById('contactStatus');
