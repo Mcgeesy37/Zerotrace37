@@ -178,27 +178,6 @@ filterBtns.forEach(btn => {
 // Initialize gallery items as showing
 galleryItems.forEach(item => item.classList.add('showing'));
 
-// === CONTACT FORM ===
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const original = btn.innerHTML;
-    btn.innerHTML = '<span>✓</span> NACHRICHT GESENDET';
-    btn.style.background = 'rgba(0,255,136,0.2)';
-    btn.style.color = 'var(--neon-green)';
-    btn.style.border = '1px solid var(--neon-green)';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style = '';
-      btn.disabled = false;
-      contactForm.reset();
-    }, 4000);
-  });
-}
-
 // === NAV ACTIVE STATE ===
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-link');
