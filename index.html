@@ -8,20 +8,60 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== SHOP EMPHASIS (index.html only) ===== */
+
+    .nav-link.cta-shop {
+      color: var(--neon-cyan);
+      border: 1px solid var(--neon-cyan);
+      padding: 0.35rem 0.9rem;
+      border-radius: 2px;
+    }
+    .nav-link.cta-shop:hover {
+      background: var(--neon-cyan);
+      color: var(--bg-deep);
+      box-shadow: var(--glow-cyan);
+    }
+    .nav-link.cta-shop::after { display: none; }
+
+    .service-card.shop-card {
+      border-color: rgba(0,229,255,0.35);
+      background: linear-gradient(135deg, rgba(0,229,255,0.06) 0%, var(--bg-card) 100%);
+    }
+    .service-card.shop-card:hover {
+      border-color: rgba(0,229,255,0.6);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,229,255,0.12);
+    }
+    .service-card.shop-card .card-glow {
+      background: radial-gradient(circle at center, rgba(0,229,255,0.08) 0%, transparent 70%);
+    }
+    .shop-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em;
+      color: var(--bg-deep); background: var(--neon-cyan);
+      padding: 0.2rem 0.5rem;
+    }
+    .service-card.shop-card .card-tags span { color: var(--neon-cyan); border-color: rgba(0,229,255,0.3); }
+    .service-card.shop-card .card-arrow { color: var(--neon-cyan); }
+
+    .footer-links a.footer-shop-link {
+      color: var(--neon-cyan);
+      font-weight: 600;
+    }
+    .footer-links a.footer-shop-link:hover { color: var(--neon-green); }
+
+    @media (max-width: 800px) {
+      .nav-link.cta-shop { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- MATRIX CANVAS BACKGROUND -->
   <canvas id="matrixCanvas"></canvas>
-
-  <!-- SCANLINE OVERLAY -->
   <div class="scanlines"></div>
   <div class="noise-overlay"></div>
-
-  <!-- CURSOR GLOW -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="nav-logo">
       <span class="logo-bracket">[</span>
@@ -34,6 +74,7 @@
       <li><a href="#services" class="nav-link" data-text="SERVICES">SERVICES</a></li>
       <li><a href="#gallery" class="nav-link" data-text="CASES">CASES</a></li>
       <li><a href="#about" class="nav-link" data-text="ABOUT">ABOUT</a></li>
+      <li><a href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener" class="nav-link cta-shop">🛒 SHOP</a></li>
       <li><a href="#contact" class="nav-link cta-nav" data-text="CONTACT">CONTACT</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -41,7 +82,6 @@
     </button>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
   <section class="hero" id="home">
     <div class="hero-grid-overlay"></div>
     <div class="hero-content">
@@ -113,7 +153,6 @@
     </div>
   </section>
 
-  <!-- ===== TICKER / ALERT BAND ===== -->
   <div class="ticker-band">
     <div class="ticker-label">⚠ LIVE THREATS</div>
     <div class="ticker-track">
@@ -136,7 +175,6 @@
     </div>
   </div>
 
-  <!-- ===== SERVICES ===== -->
   <section class="services" id="services">
     <div class="section-header">
       <div class="section-tag">// LEISTUNGEN</div>
@@ -158,7 +196,7 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <div class="service-card featured" data-delay="100">
+      <a class="service-card featured" data-delay="100" href="penetration-testing.html">
         <div class="card-glow"></div>
         <div class="featured-badge">TOP SERVICE</div>
         <div class="service-icon-wrap">
@@ -170,9 +208,9 @@
           <span>Web-App</span><span>Netzwerk</span><span>Social Eng.</span>
         </div>
         <div class="card-arrow">→</div>
-      </div>
+      </a>
 
-      <div class="service-card" data-delay="200">
+      <a class="service-card" data-delay="200" href="incident-response.html">
         <div class="card-glow"></div>
         <div class="service-icon-wrap">
           <div class="service-icon">🚨</div>
@@ -183,7 +221,7 @@
           <span>24/7</span><span>Sofort</span><span>Komplett</span>
         </div>
         <div class="card-arrow">→</div>
-      </div>
+      </a>
 
       <div class="service-card" data-delay="300">
         <div class="card-glow"></div>
@@ -198,7 +236,7 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <div class="service-card" data-delay="400">
+      <a class="service-card" data-delay="400" href="privatpersonen-schutz.html">
         <div class="card-glow"></div>
         <div class="service-icon-wrap">
           <div class="service-icon">👤</div>
@@ -209,9 +247,9 @@
           <span>Diskret</span><span>Privat</span><span>Effektiv</span>
         </div>
         <div class="card-arrow">→</div>
-      </div>
+      </a>
 
-      <div class="service-card" data-delay="500">
+      <a class="service-card" data-delay="500" href="rechtliche-begleitung.html">
         <div class="card-glow"></div>
         <div class="service-icon-wrap">
           <div class="service-icon">📋</div>
@@ -222,10 +260,11 @@
           <span>Juristisch</span><span>Beweise</span><span>Anzeige</span>
         </div>
         <div class="card-arrow">→</div>
-      </div>
+      </a>
 
-      <a class="service-card" data-delay="600" href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener">
+      <a class="service-card shop-card" data-delay="600" href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener">
         <div class="card-glow"></div>
+        <div class="shop-badge">IM SHOP</div>
         <div class="service-icon-wrap">
           <div class="service-icon">🛠</div>
         </div>
@@ -240,7 +279,6 @@
     </div>
   </section>
 
-  <!-- ===== GALLERY / CASES ===== -->
   <section class="gallery-section" id="gallery">
     <div class="section-header">
       <div class="section-tag">// FALLSTUDIEN</div>
@@ -391,7 +429,6 @@
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
   <section class="about" id="about">
     <div class="about-content">
       <div class="section-tag">// ÜBER UNS</div>
@@ -450,7 +487,6 @@
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
     <div class="section-header">
       <div class="section-tag">// KONTAKT</div>
@@ -532,7 +568,6 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
@@ -544,9 +579,11 @@
       <div class="footer-links">
         <h4>Services</h4>
         <a href="#services">Betrugsermittlung</a>
-        <a href="#services">Penetration Testing</a>
-        <a href="#services">Incident Response</a>
-        <a href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener">Security-Tools (Shop)</a>
+        <a href="penetration-testing.html">Penetration Testing</a>
+        <a href="incident-response.html">Incident Response</a>
+        <a href="privatpersonen-schutz.html">Privatpersonen-Schutz</a>
+        <a href="rechtliche-begleitung.html">Rechtliche Begleitung</a>
+        <a href="https://tracekeeper.gumroad.com" target="_blank" rel="noopener" class="footer-shop-link">🛒 Security-Tools (Shop)</a>
       </div>
       <div class="footer-links">
         <h4>Rechtliches</h4>
@@ -556,9 +593,9 @@
       </div>
       <div class="footer-links">
         <h4>Kontakt</h4>
-        <a href="#">+49 176 706 83230</a>
-        <a href="#">root@zerotrace37.com</a>
-        <a href="#">Signal auf Anfrage</a>
+        <a href="tel:+4917670683230">+49 176 706 83230</a>
+        <a href="mailto:root@zerotrace37.com">root@zerotrace37.com</a>
+        <span>Signal auf Anfrage</span>
       </div>
     </div>
     <div class="footer-bottom">
