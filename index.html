@@ -53,6 +53,18 @@
     @media (max-width: 800px) {
       .nav-link.cta-shop { display: none; }
     }
+
+    /* ===== CONTACT FORM STATUS (real Formspree feedback) ===== */
+    .contact-form-status {
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-align: center;
+      min-height: 1.4em;
+    }
+    .contact-form-status.ok { color: var(--neon-green); }
+    .contact-form-status.err { color: var(--neon-red); }
+    .contact-form button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -530,20 +542,20 @@
           <a href="tel:+4917670683230" class="btn-primary btn-small">JETZT ANRUFEN</a>
         </div>
       </div>
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdawolnz" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Ihr Name" required />
+            <input type="text" id="name" name="Name" placeholder="Ihr Name" required />
           </div>
           <div class="form-group">
             <label for="email">E-Mail</label>
-            <input type="email" id="email" placeholder="ihre@email.de" required />
+            <input type="email" id="email" name="Email" placeholder="ihre@email.de" required />
           </div>
         </div>
         <div class="form-group">
           <label for="service">Service</label>
-          <select id="service">
+          <select id="service" name="Service">
             <option value="">— Bitte wählen —</option>
             <option>Betrugsermittlung</option>
             <option>Penetration Testing</option>
@@ -555,15 +567,16 @@
         </div>
         <div class="form-group">
           <label for="message">Nachricht</label>
-          <textarea id="message" rows="5" placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+          <textarea id="message" name="Nachricht" rows="5" placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
         </div>
         <div class="form-check">
-          <input type="checkbox" id="gdpr" required />
+          <input type="checkbox" id="gdpr" name="DSGVO_Zustimmung" value="Ja" required />
           <label for="gdpr">Ich stimme der vertraulichen Verarbeitung meiner Daten zu (DSGVO)</label>
         </div>
         <button type="submit" class="btn-primary btn-full">
           <span class="btn-icon">🔒</span> VERSCHLÜSSELT SENDEN
         </button>
+        <p class="contact-form-status" id="contactStatus"></p>
       </form>
     </div>
   </section>
@@ -617,5 +630,43 @@
   </script>
 
   <script src="script.js"></script>
+  <script>
+    // Homepage contact form → real submission via Formspree.
+    // IMPORTANT: the old fake contactForm handler must be removed from
+    // script.js, or it will also fire and show a false "sent" message
+    // without actually submitting.
+    (function () {
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('contactStatus');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var data = new FormData(form);
+        status.textContent = 'Wird verschlüsselt übermittelt...';
+        status.className = 'contact-form-status';
+        btn.disabled = true;
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+          btn.disabled = false;
+          if (response.ok) {
+            status.textContent = '✓ Nachricht gesendet. Wir melden uns kurzfristig.';
+            status.className = 'contact-form-status ok';
+            form.reset();
+          } else {
+            status.textContent = '✗ Übermittlung fehlgeschlagen. Bitte per E-Mail an root@zerotrace37.com senden.';
+            status.className = 'contact-form-status err';
+          }
+        }).catch(function () {
+          btn.disabled = false;
+          status.textContent = '✗ Verbindungsfehler. Bitte per E-Mail an root@zerotrace37.com senden.';
+          status.className = 'contact-form-status err';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
