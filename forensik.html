@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spyware- &amp; Malware-Forensik-Scan — ZeroTrace37</title>
+<meta name="description" content="Forensischer Spyware- und Malware-Scan für iOS und Android mit dem MVT-Toolkit. Findet Stalkerware und Staatstrojaner wie Pegasus. Vertraulich, verschlüsselt, Berlin-basiert." />
+<link rel="canonical" href="https://zerotrace37.com/forensik.html" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
 
@@ -53,14 +55,19 @@ header.nav{
 .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1160px; margin:0 auto;}
 .nav-logo{font-family:'Oswald',sans-serif; font-weight:700; font-size:19px; letter-spacing:1.5px;}
 .nav-logo .dot{color:var(--scan);}
-.nav-links{display:flex; gap:34px; font-size:14.5px; color:var(--muted);}
+.nav-links{display:flex; align-items:center; gap:34px; font-size:14.5px; color:var(--muted);}
 .nav-links a:hover{color:var(--text);}
+.nav-links .home-link{
+  font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--scan);
+  border:1px solid rgba(53,232,180,0.35); padding:5px 11px; border-radius:4px;
+}
+.nav-links .home-link:hover{ background:rgba(53,232,180,0.1); color:var(--scan); }
 .nav-cta{
   font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700;
   color:var(--bg); background:var(--scan);
   padding:10px 18px; border-radius:4px; letter-spacing:0.5px;
 }
-@media(max-width:760px){ .nav-links{display:none;} }
+@media(max-width:760px){ .nav-links a:not(.home-link){display:none;} }
 
 /* ===== HERO ===== */
 .hero{padding:96px 0 70px; position:relative;}
@@ -194,6 +201,7 @@ h2{font-family:'Oswald',sans-serif; font-weight:600; font-size:clamp(26px,3.4vw,
 footer{border-top:1px solid var(--panel-line); padding:40px 0;}
 .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
 .footer-inner .domain{font-family:'JetBrains Mono',monospace; color:var(--scan); font-weight:700;}
+.footer-inner .domain:hover{ text-decoration:underline; }
 .footer-inner .note{color:var(--muted2); font-size:13px;}
 
 /* scroll reveal */
@@ -209,8 +217,9 @@ footer{border-top:1px solid var(--panel-line); padding:40px 0;}
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="nav-logo">ZEROTRACE37<span class="dot">.</span></div>
+    <a class="nav-logo" href="https://zerotrace37.com/">ZEROTRACE37<span class="dot">.</span></a>
     <nav class="nav-links">
+      <a href="https://zerotrace37.com/" class="home-link">← Alle Services</a>
       <a href="#anzeichen">Anzeichen</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#report">Der Scan</a>
@@ -327,7 +336,7 @@ footer{border-top:1px solid var(--panel-line); padding:40px 0;}
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="domain">zerotrace37.com</div>
+    <a class="domain" href="https://zerotrace37.com/">zerotrace37.com</a>
     <div class="note">Digital Forensics · Berlin · Vertraulich · Verschlüsselt · Diskret</div>
   </div>
 </footer>
